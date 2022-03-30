@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  adminer:
+    image: adminer
+    hostname: adminer.local
+    restart: always
+    expose:
+      - "8080"
+    networks:
+      - adminer_nw
+    environment:
+      - VIRTUAL_HOST=adminer.local
+      - VIRTUAL_PORT=8080
+
+
+networks:
+  adminer_nw:
+    name: adminer_nw
+    driver: bridge
